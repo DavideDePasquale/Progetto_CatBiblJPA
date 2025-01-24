@@ -6,7 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "cataloghi")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_elemento")
 public abstract class Catalogo {
 
     @Id
