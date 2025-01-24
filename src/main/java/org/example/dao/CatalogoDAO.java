@@ -3,6 +3,8 @@ package org.example.dao;
 import org.example.entities.Catalogo;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
 
 public class CatalogoDAO {
 
@@ -23,5 +25,11 @@ public class CatalogoDAO {
         em.getTransaction().begin();
         em.remove(catalogo);
         em.getTransaction().commit();
+    }
+    //public static List
+    // RICERCA TRAMITE ISBN
+    public List<Catalogo> ricercaXISBN(){
+        Query q = em.createQuery("SELECT c FROM Catalogo c WHERE c.cod_ISBN = 70");
+        return q.getResultList();
     }
 }

@@ -19,18 +19,21 @@ public class Prestito {
     joinColumns = @JoinColumn(name = "prestito_id"),
     inverseJoinColumns = @JoinColumn(name = "catalogo_id"))
     private List<Catalogo> elemento_prestato;
+    @Column(nullable = false)
     private LocalDate data_inizio_prestito;
+    @Column(nullable = false)
     private LocalDate data_restituzione_prevista;
+    @Column(nullable = true)
     private LocalDate data_restituzione_effettiva;
 
     public Prestito() {
     }
 
-    public Prestito(Utente utente, List<Catalogo> elemento_prestato, LocalDate data_inizio_prestito, LocalDate data_restituzione_prevista, LocalDate data_restituzione_effettiva) {
+    public Prestito(Utente utente, List<Catalogo> elemento_prestato, LocalDate data_inizio_prestito, LocalDate data_restituzione_effettiva) {
         this.utente = utente;
         this.elemento_prestato = elemento_prestato;
         this.data_inizio_prestito = data_inizio_prestito;
-        this.data_restituzione_prevista = data_restituzione_prevista;
+        this.data_restituzione_prevista = data_inizio_prestito.plusDays(30);
         this.data_restituzione_effettiva = data_restituzione_effettiva;
     }
 
@@ -81,6 +84,7 @@ public class Prestito {
     public void setData_restituzione_effettiva(LocalDate data_restituzione_effettiva) {
         this.data_restituzione_effettiva = data_restituzione_effettiva;
     }
+
 
     @Override
     public String toString() {

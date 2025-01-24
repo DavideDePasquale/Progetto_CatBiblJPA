@@ -1,8 +1,6 @@
 package org.example.entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "cataloghi")
@@ -16,16 +14,15 @@ public abstract class Catalogo {
     @Column(nullable = false)
     private String titolo;
     @Column(nullable = false)
-    private LocalDate anno_pubblicazione;
+    private int anno_pubblicazione;
     @Column(nullable = false)
     private int n_pagine;
-    @ManyToMany
-    private List<Prestito> prestito;
+
 
     public Catalogo() {
     }
 
-    public Catalogo(String titolo, LocalDate anno_pubblicazione, int n_pagine) {
+    public Catalogo(String titolo, int anno_pubblicazione, int n_pagine) {
         this.titolo = titolo;
         this.anno_pubblicazione = anno_pubblicazione;
         this.n_pagine = n_pagine;
@@ -47,11 +44,11 @@ public abstract class Catalogo {
         this.titolo = titolo;
     }
 
-    public LocalDate getAnno_pubblicazione() {
+    public int getAnno_pubblicazione() {
         return anno_pubblicazione;
     }
 
-    public void setAnno_pubblicazione(LocalDate anno_pubblicazione) {
+    public void setAnno_pubblicazione(int anno_pubblicazione) {
         this.anno_pubblicazione = anno_pubblicazione;
     }
 

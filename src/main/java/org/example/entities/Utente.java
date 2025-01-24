@@ -11,8 +11,11 @@ public class Utente {
     @Id
     @GeneratedValue
     private long numero_tessera;
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private String cognome;
+    @Column(nullable = false)
     private LocalDate data_di_nascita;
     @OneToMany(mappedBy = "utente")
     private List<Prestito> prestito;

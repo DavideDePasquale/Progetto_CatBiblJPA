@@ -7,18 +7,19 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "libri")
+@DiscriminatorValue("LIBRO")
 public class Libro extends Catalogo {
 
-    @Column(nullable = false)
+
     private String autore;
     @Enumerated(EnumType.STRING)
+
     private TipoGenere genere;
 
     public Libro() {
     }
 
-    public Libro(String titolo, LocalDate anno_pubblicazione, int n_pagine, String autore, TipoGenere genere) {
+    public Libro(String titolo, int anno_pubblicazione, int n_pagine, String autore, TipoGenere genere) {
         super(titolo, anno_pubblicazione, n_pagine);
         this.autore = autore;
         this.genere = genere;
@@ -42,9 +43,9 @@ public class Libro extends Catalogo {
 
     @Override
     public String toString() {
-        return "Libro{" +
-                "autore='" + autore + '\'' +
-                ", genere=" + genere +
+        return "Libro{" + " titolo= ' "+ super.getTitolo() +
+                "'  autore=' " + autore + '\'' +
+                " , genere= " + genere +
                 '}';
     }
 }

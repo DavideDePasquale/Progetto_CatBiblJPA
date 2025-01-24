@@ -2,14 +2,10 @@ package org.example.entities;
 
 import org.example.Enumeration.TipoPubblicazione;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
-import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "riviste")
+@DiscriminatorValue("RIVISTA")
 public class Rivista extends Catalogo{
 
     @Enumerated(EnumType.STRING)
@@ -18,7 +14,7 @@ public class Rivista extends Catalogo{
     public Rivista() {
     }
 
-    public Rivista(String titolo, LocalDate anno_pubblicazione, int n_pagine, TipoPubblicazione periodicita) {
+    public Rivista(String titolo, int anno_pubblicazione, int n_pagine, TipoPubblicazione periodicita) {
         super(titolo, anno_pubblicazione, n_pagine);
         this.periodicita = periodicita;
     }
@@ -33,8 +29,8 @@ public class Rivista extends Catalogo{
 
     @Override
     public String toString() {
-        return "Rivista{" +
-                "periodicita=" + periodicita +
+        return "Rivista{" + " titolo rivista= '" + super.getTitolo() +
+                "', periodicità= " + periodicita +
                 '}';
     }
 }
