@@ -32,4 +32,17 @@ public class CatalogoDAO {
         Query q = em.createQuery("SELECT c FROM Catalogo c WHERE c.cod_ISBN = 70");
         return q.getResultList();
     }
+    public List<Catalogo> ricercaXAnnoPubblicazione(){
+        Query q = em.createQuery("SELECT c FROM Catalogo c WHERE c.anno_pubblicazione = 2023");
+        return q.getResultList();
+    }
+    public List<Catalogo> ricercaXAutore(){
+        Query q = em.createQuery("SELECT c FROM Catalogo c WHERE c.autore = 'Umberto Eco'");
+        return q.getResultList();
+    }
+    public List<Catalogo> ricercaXTitoloOParte(){
+        Query q = em.createQuery("SELECT c FROM Catalogo c WHERE c.titolo LIKE :titolo");
+        q.setParameter("titolo","%Sp%"); // con "%sp%" non mi trova quei titoli :(
+        return  q.getResultList();
+    }
 }

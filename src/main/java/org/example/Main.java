@@ -144,13 +144,28 @@ public class Main
 //       catalogoDao.delete(catalogo);
 
 
-        // RICERCA TRAMITE ISBN    (terzo punto esercitazione)         👍👍👍👍
-//        List<Catalogo> catalogoRicerca = catalogoDao.ricercaXISBN();
-//        catalogoRicerca.forEach(System.out::println);
+        // RICERCA TRAMITE ISBN    (terzo punto esercitazione)    👍👍👍👍
+        System.out.println("TERZO PUNTO (RICERCA TRAMITE ISBN)");
+        List<Catalogo> catalogoRicerca = catalogoDao.ricercaXISBN();
+        catalogoRicerca.forEach(System.out::println);
 
-        // RICERCA PER ANNO PUBBLICAZIONE (Quarto punto esercitazione)
+        // RICERCA PER ANNO PUBBLICAZIONE (Quarto punto esercitazione)     👍👍👍👍
+        System.out.println("QUARTO PUNTO (RICERCA PER ANNO DI PUBBLICAZIONE)");
+        List<Catalogo> catalogoRicercXAnno = catalogoDao.ricercaXAnnoPubblicazione();
+        catalogoRicercXAnno.forEach(System.out::println);
 
+        // RICERCA PER AUTORE (Quinto punto esercitazione)         👍👍👍👍
+        System.out.println("QUINTO PUNTO (RICERCA PER AUTORE)");
+        List<Catalogo> catalogoRicXAutore = catalogoDao.ricercaXAutore();
+        catalogoRicXAutore.forEach(System.out::println);
 
+        // RICERCA PER TITOLO O UNA PARTE DI ESSO (Sesto punto esercitazione) 👍👍👍👍
+        System.out.println("SESTO PUNTO (RICERCA PER TITOLO O UNA PARTE DI ESSO");
+        List<Catalogo> catalogoRicXTitolo = catalogoDao.ricercaXTitoloOParte();
+        catalogoRicXTitolo.forEach(System.out::println);
+
+        // RICERCA PER GLI ELEMENTI ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTE (Settimo punto esercitazione)
+        System.out.println("SETTIMO PUNTO (CERCA GLI ELEM ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTE");
 
 
 
