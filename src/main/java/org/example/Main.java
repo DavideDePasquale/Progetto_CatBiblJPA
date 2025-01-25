@@ -164,9 +164,16 @@ public class Main
         List<Catalogo> catalogoRicXTitolo = catalogoDao.ricercaXTitoloOParte();
         catalogoRicXTitolo.forEach(System.out::println);
 
-        // RICERCA PER GLI ELEMENTI ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTE (Settimo punto esercitazione)
+        // RICERCA PER GLI ELEMENTI ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTE (Settimo punto esercitazione)   👍👍👍👍
         System.out.println("SETTIMO PUNTO (CERCA GLI ELEM ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTE");
+        List<Prestito> ricercaElementoPrestito = prestitoDao.ricercaElemOraInPrestito();
+        ricercaElementoPrestito.forEach(System.out::println);
 
+
+        //RICERCA PRESTITI SCADUTI E ANCORA NON RESTITUITI (Ultimo punto)
+        System.out.println("OTTAVO PUNTO (RICERCA PRESTITI SCADUTI E ANCORA NON RESTITUITI");
+        List<Prestito> ricercaPrestitoScaduto = prestitoDao.ricercaPrestitiScaduti();
+        ricercaPrestitoScaduto.forEach(System.out::println);
 
 
 

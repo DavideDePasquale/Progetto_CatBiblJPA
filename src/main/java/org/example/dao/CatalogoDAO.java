@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.entities.Catalogo;
+import org.example.entities.Prestito;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -45,4 +46,5 @@ public class CatalogoDAO {
         q.setParameter("titolo","%Sp%"); // con "%sp%" non mi trova quei titoli :(
         return  q.getResultList();
     }
+
 }
